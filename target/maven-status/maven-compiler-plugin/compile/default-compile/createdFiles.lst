@@ -1,0 +1,10 @@
+model/Sign.class
+services/Redactor.class
+Main.class
+services/RuleMapper.class
+model/AllData.class
+model/Conditional.class
+model/Rule.class
+services/Reader.class
+services/Printer.class
+services/Analyzer.class
