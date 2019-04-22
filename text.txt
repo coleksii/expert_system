@@ -1,5 +1,4 @@
-C + B => A
-E => B + (C | J)
-
-=E
-?A
+A + B + C => D
+C => N
+=ABN
+?D

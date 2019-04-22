@@ -26,6 +26,8 @@ public class Conditional {
 
     private Sign sign;
 
+    private boolean isChecked = false;
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();

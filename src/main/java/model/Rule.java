@@ -14,10 +14,16 @@ import java.util.List;
 public class Rule {
     private List<Conditional> conditionals = new ArrayList<>();
     private List<Conditional> results = new ArrayList<>();
-    Conditional conditional = new Conditional();
-    Conditional result = new Conditional();
+    private Conditional conditional = new Conditional();
+    private Conditional result = new Conditional();
+    private boolean isChecked = false;
 
-    public Rule() {
+    public void mapToConditional() {
+        map(conditionals, conditional);
+        map(results, result);
+    }
+
+    private void map(List<Conditional> conditionals, Conditional conditional) {
         if (conditionals.size() == 1) {
             conditional.setOnlyCharacter(true);
             conditional.setCharacter(conditionals.get(0).getCharacter());
@@ -29,4 +35,5 @@ public class Rule {
             conditional.setActive(true);
         }
     }
+
 }

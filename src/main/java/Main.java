@@ -15,6 +15,9 @@ public class Main {
         RuleMapper ruleMapper = new RuleMapper();
         AllData allData = ruleMapper.createRules(refactoredRawList);
 
+        AdditionalAnalyzer additionalAnalyzer = new AdditionalAnalyzer();
+        additionalAnalyzer.start(allData);
+
         Analyzer analyzer = new Analyzer();
         analyzer.start(allData);
 

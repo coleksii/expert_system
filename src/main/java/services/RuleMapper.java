@@ -23,6 +23,10 @@ public class RuleMapper {
         }
         createParams(raw.get(raw.size() - 2));
         createRequest(raw.get(raw.size() - 1));
+        List<Rule> rules = allData.getRules();
+        for (Rule rule: rules){
+            rule.mapToConditional();
+        }
         return allData;
     }
 
