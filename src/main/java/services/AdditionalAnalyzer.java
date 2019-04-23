@@ -6,6 +6,7 @@ import model.Rule;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by coleksii on 4/21/19.
@@ -84,6 +85,7 @@ public class AdditionalAnalyzer {
                 isMatched = true;
             }
         }
+        comparedRule.setChecked(true);
     }
 
     private boolean findComplexConditionalMatch(Conditional conditional, Conditional comparedConditional) {
@@ -137,7 +139,21 @@ public class AdditionalAnalyzer {
                 conditional.setSign(target.getSign());
                 conditional.setActive(target.isActive());
                 conditional.setOnlyCharacter(target.isOnlyCharacter());
-                conditional.setConditionals(target.getConditionals());
+                List<Conditional> list = new ArrayList<>();
+                conditional.setConditionals(list);
+                for (Conditional cond : target.getConditionals()){
+                    if (cond.getCharacter() == match.getCharacter()){
+                        Conditional newCond = new Conditional();
+                        newCond.setOnlyCharacter(replace.isOnlyCharacter());
+                        newCond.setCharacter(replace.getCharacter());
+                        newCond.setConditionals(replace.getConditionals());
+                        newCond.setSign(cond.getSign());
+                        newCond.setActive(cond.isActive());
+                        list.add(newCond);
+                    }else {
+                        list.add(cond);
+                    }
+                }
                 conditional.setCharacter(target.getCharacter());
                 return conditional;
             }
