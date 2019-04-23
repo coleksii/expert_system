@@ -29,6 +29,10 @@ public class Analyzer {
         for (Rule rule : trueRule){
             analyseResult(rule, request);
         }
+        for (char chr : allData.getRequest()){
+            if (allData.getParams().contains(chr))
+                rightResultsTotal.add(chr);
+        }
         allData.setRightResults(rightResultsTotal);
         allData.setWrongResults(wrongResultsTotal);
     }
