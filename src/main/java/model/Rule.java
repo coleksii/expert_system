@@ -18,6 +18,7 @@ public class Rule {
     private Conditional result = new Conditional();
     private boolean isChecked = false;
 
+    private List<Rule> alreadyChecked = new ArrayList<>();
     public void mapToConditional() {
         map(conditionals, conditional);
         map(results, result);
